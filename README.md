@@ -1,3 +1,3 @@
 # artGallery
 
-https://lucascaiafa00.github.io/artGallery/
+<a href="https://lucascaiafa00.github.io/artGallery/">Art Gallery</a>
