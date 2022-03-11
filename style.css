@@ -93,11 +93,13 @@ main{
     transition: all .8s ease-out;
     position: absolute;
     bottom: 10%;
-    width: 100%;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
     color: white;
     pointer-events: none;
-    font-size: .8em;
+    font-size: .7em;
 }
 
 .title-artist h2{
@@ -123,7 +125,7 @@ footer img{
 }
 
 #background{
-    background-color: #000000e7;
+    background-color: #000000f7;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -141,10 +143,10 @@ footer img{
 
 #info{
     position: fixed;
-    top: 5%;
+    top: 10%;
     left: 50%;
     width: 88vw;
-    max-height: 90vh;
+    max-height: 80vh;
     transform: translateX(-50%);
     background-color: #f2f2f2;
     border: solid 10px #d9c5b4;
@@ -176,7 +178,7 @@ footer img{
     text-align: center;
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     color: #595959;
     margin: 20px 0;
     padding: 10px;
