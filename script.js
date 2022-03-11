@@ -36,6 +36,7 @@ function nextImage(){
 
 function startSlideShow() {
     background.classList.add("open")
+    document.body.style.overflow = "hidden"
     nextImage()
     slideShow = setInterval(nextImage,8000)
     
