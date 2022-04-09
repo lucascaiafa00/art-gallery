@@ -1,75 +1,63 @@
-let info = document.getElementById("info")
+let images = document.querySelectorAll(".img-container img")
 let background = document.getElementById("background")
-let artworks = document.querySelectorAll(".artwork")
-let previousButton = document.getElementById("previous")
-let nextButton = document.getElementById("next")
+let info = document.getElementById("info")
 let fullImage = document.getElementById("full-image")
-var imageNumber = 0
-var infoFullImage = false
-var slideShow
+let infoTitle = info.children[0]
+let infoArtist = info.children[1]
+let infoImage = info.children[2]
+let slideShow
+var currentImage = 0
+var fullImageInfo = false
 
+function startSlides() {
+    currentImage = 0
+    fullImage.src = images[currentImage].src
+    background.classList.add("show")
+    fullImage.classList.add("show")
 
-function openInfo(title, image, text, link){
-    background.classList.add("open")
-    info.classList.add("open")
-    info.classList.add("open")
-
-    document.body.style.overflow = "hidden"
-    
-    info.children[0].innerText = title
-    info.children[1].src = image
-    info.children[2].innerHTML = text
-    info.children[3].href = link
+    slideShow = setInterval(() => {
+        fullImage.classList.remove("show")
+        currentImage++
+        if (currentImage >= images.length) {
+            currentImage = 0
+        }
+        fullImage.src = images[currentImage].src
+        fullImage.classList.add("show")
+    }, 2500);
 }
 
-function nextImage(){
-    fullImage.src = artworks[imageNumber].src
-    fullImage.classList.add("open")
-
-    imageNumber++
-
-    if(imageNumber >= artworks.length){
-        imageNumber = 0
+function closeImage() {
+    if (fullImageInfo == true) {
+        info.classList.add("show")
+        fullImage.classList.remove("show")
+        fullImageInfo = false
     }
-    setTimeout(()=>{fullImage.classList.remove("open")},7000)
-}
-
-function startSlideShow() {
-    background.classList.add("open")
-    document.body.style.overflow = "hidden"
-    nextImage()
-    slideShow = setInterval(nextImage,8000)
-    
-}
-
-//startSlideShow()
-
-info.children[1].onclick = ()=>{
-    fullImage.src = info.children[1].src
-    fullImage.classList.add("open")
-    info.classList.remove("open")
-    infoFullImage = true
-}
-
-for (let index = 0; index < artworks.length; index++) {
-    const artwork = artworks[index];
-
-    artwork.addEventListener("click", ()=>{
-        openInfo(artwork.getAttribute("data-title"), artwork.src, artwork.getAttribute("data-text"), artwork.getAttribute("data-link"))
-    })
-}
-
-background.addEventListener('click', ()=>{
-    if (infoFullImage === true) {
-        info.classList.add("open")
-        infoFullImage = false
-    }else{
-        background.classList.remove("open")
-        info.classList.remove("open")
-
+    else{
+        background.classList.remove("show")
+        info.classList.remove("show")
+        fullImage.classList.remove("show")
     }
+
     clearInterval(slideShow)
-    fullImage.classList.remove("open")
-    imageNumber = 0
-    document.body.style.overflow = "auto"
-})
+    currentImage = 0
+    
+}
+
+images.forEach(image => {
+    image.onclick = ()=>{
+        background.classList.add("show")
+        info.classList.add("show")
+
+        infoTitle.innerHTML = image.title
+        infoArtist.innerHTML = image.getAttribute("data-artist")
+        infoImage.src = image.src
+
+        fullImage.src = image.src
+        infoImage.onclick = ()=>{
+            fullImage.classList.add("show")
+            info.classList.remove("show")
+            console.log("09");
+            fullImageInfo = true
+        }
+    }
+});
