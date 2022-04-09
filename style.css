@@ -7,7 +7,7 @@
 }
 
 :root{
-    --color1:#58658C;
+    --color1:#888888;
     --color2:#F2F2F2;
     --color3:#D9C6B0;
     --color4:#8C6F5E;
@@ -32,9 +32,10 @@ header{
     background-color: var(--color4);
     transition: all .3s ease;
     cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
 }
 
-#slides-button:hover{
+#slides-button:hover , #see-more:hover{
     background-color: var(--color1);
 }
 
@@ -101,6 +102,7 @@ footer{
 footer img{
     width: 25px;
     margin: 5px;
+    
 }
 
 #background{
@@ -169,6 +171,7 @@ h2{
 }
 
 #see-more{
+    text-decoration: none;
     float: right;
     margin: 10px 0;
 }
@@ -211,6 +214,11 @@ h2{
 
     #info img{
         float: none;
+        margin: 10px auto;
+    }
+
+    #info p{
+        font-size: 15px;
     }
 }
 
