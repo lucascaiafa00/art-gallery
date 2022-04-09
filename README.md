@@ -5,7 +5,7 @@
   <img src="/img/print-1.png" width="850"/>
   <img src="/img/print-2.png" width="850"/>
   <img src="/img/print-3.png" width="850"/>
-  <img src="/img/print-4.png" width="850"/>
+  <img src="/img/print-4.jpeg" width="850"/>
 </p>
 
 <div align="center" style="display: inline_block"><br>
